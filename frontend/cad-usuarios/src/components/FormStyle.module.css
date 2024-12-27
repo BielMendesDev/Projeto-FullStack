@@ -1,0 +1,147 @@
+
+
+.box{
+    width: 90%;
+    background-color: rgb(206, 214, 220);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 36vw;  
+    margin-left:5% ;
+    margin-right: 5%;
+    margin-top: 1vw;
+    z-index: 1;
+    position: absolute;
+    
+}
+
+.box .titulo{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 2.8%;
+    color: black;
+    font-size: 1vw;
+    padding: 0.4vw;
+    flex-direction: row;
+    width: 50vw;
+    margin-left:0 ;
+}
+
+
+
+.titulo h1, p {
+    display: flex;
+    align-items: center;
+    font-size: 1vw;
+}
+
+p{
+    margin-left: 0.6vw;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 30vw;
+    background-color: white;
+
+}
+
+.form{
+    width: 100%;
+    margin-top: 2%;
+    height: 80%;
+    border-bottom: 1px solid rgb(206, 214, 220);
+}
+
+.botoes{
+    margin-right: 2% ;
+    align-self: self-end;
+}
+
+button{
+    margin-left: 1vw;
+    margin-top: 0.8vw;
+    height: 2.4vw;
+    width: 4.8vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+}
+
+.salvar{
+    background-color: rgb(0, 169, 248);
+    color: white;
+    border: 0.1vw solid rgb(0, 169, 248);
+    transition: 0.5s;
+}
+
+.salvar:hover{
+    background-color: rgb(0, 144, 211);
+}
+
+.cancelar{
+    background-color: rgb(254, 59, 59);
+    color: white;
+    border: 0.1vw solid rgb(254, 59, 59);
+    transition: 0.5s;
+}
+
+.cancelar:hover{
+    background-color: rgb(211, 0, 0);
+}
+
+.metadeCima{
+    display: flex;
+}
+
+.metadeBaixo{
+    display: flex;
+    margin: 1%;
+}
+
+.labelInput{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9vw;
+    margin-block: 0.6vw;
+    margin-inline: 0.6vw;
+}
+
+label{
+    margin-bottom: 0.2vw;
+}
+
+input{
+    height: 1.6vw;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+}
+
+.metade1Cima, .metade2Cima{
+    width: 49%;
+    margin: 1%;
+}
+
+.cidade{
+    width: 65%;
+}
+
+.cep, .uf{
+    width: 15%;
+}
+
+span{
+    font-size: 0.6vw;
+    font-weight: bold;
+    color: red;
+}
+
+input{
+    font-size: 0.8vw;
+}

@@ -1,0 +1,166 @@
+.box{
+    width: 90%;
+    background-color: rgb(206, 214, 220);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 38vw;  
+    margin-left:5% ;
+    margin-right: 5%;
+    margin-top: 1vw;
+    position: absolute;
+}
+
+.box h1{
+    margin-block: 0.6vw;
+    align-self: flex-start;
+    margin-left: 2.8%;
+    color: black;
+    font-size: 1vw;
+    padding-inline: 0.4vw;
+}
+
+.container{
+    background-color: white;
+    width: 95%;
+    padding: 0.7vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+ fieldset{
+    width: 100%;
+ }
+
+ legend{
+    margin-left: 1vw;
+    padding-inline: 0.8vw ;
+    font-size: 1vw;
+ }
+
+form, .codigo, .nome, .razao{
+    display: flex;
+    flex-direction: column;
+ }
+
+.metade1, .metade2{
+    display: flex;
+    flex-direction: row;
+    margin-block: 0.8vh;
+}
+
+ .razao{
+    flex: 70%;
+    margin: 0.4vw;
+}
+
+.filtrar{
+    margin-right: 30%;
+    margin-top: 1.4vw;
+    width: 4.9vw;
+    height: 1.6vw;
+    font-size: 0.8vw;
+    background-color: rgb(0, 169, 248);
+    color: white;
+    border-radius: 0.3vw;
+    border: 0.1vw solid rgb(0, 169, 248);
+    
+    transition: 0.5s;
+}
+
+.filtrar:hover{
+    background-color: rgb(16, 134, 189);
+}
+
+
+
+.incluir{
+    align-self: flex-start;
+    margin: 0.8vw;
+    width: 4.9vw;
+    height: 1.6vw;
+    font-size: 0.8vw;
+    background-color: rgb(0, 169, 248);
+    color: white;
+    border-radius: 1vw;
+    border: 0.1vw solid rgb(0, 169, 248);
+   
+    transition: 0.5s;
+}
+
+.incluir:hover{
+    background-color: rgb(16, 134, 189);
+    
+}
+
+.codigo{
+    flex: 20%;
+    margin: 0.4vw;
+}
+
+.nome{
+    flex: 80%;
+    margin: 0.4vw;
+}
+
+.razao{
+    flex: 60;
+}
+
+label{
+    font-size: 0.9vw;
+}
+
+input{
+    padding: 0.18vw;
+}
+
+
+.divTabela{
+    width: 100%;
+    height: 18vw;
+    overflow-y: scroll;
+    
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1vw;
+}
+
+
+
+thead{
+    height: 2vw;
+    text-align: left;
+    width: 100%;
+    background-color: rgb(206, 214, 220);
+}
+
+table thead{
+    position: sticky;
+    top: 0;
+}
+
+td, th{
+    border-bottom: 1px solid rgb(206, 214, 220);
+    padding-inline: 0.6vw;
+    width: 20%;
+}
+
+
+th{
+    padding: 0.8vw;
+}
+
+
+.acao{
+    padding: 0;
+    margin-inline: 1vw;
+    border: none;
+    background-color: transparent;
+    width:  1.3vw;
+    
+}

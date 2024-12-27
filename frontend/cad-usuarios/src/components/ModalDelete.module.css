@@ -1,0 +1,108 @@
+.boxOutside{
+    width: 42%;
+    background-color: rgb(70, 70, 70);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 22vw;  
+    margin-left:30% ;
+    margin-right: 30%;
+    margin-top: 1vw;
+    z-index: 1;
+    position: absolute;
+}
+
+.containerModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+    margin-inline: 4%;
+    margin-block: 2% ;
+    background-color: white;
+}
+
+.h1Modal{
+    align-self: flex-start;
+    font-size: 1.6vw ;
+    margin-left: 0.8vw;
+    margin-block: 1vw;
+    
+}
+
+
+
+
+.boxModal{
+    height: 100%;
+    width: 100%;
+    border-top: 1px solid rgb(206, 214, 220);
+    padding: 1vw;
+
+    text-align: center;
+}
+
+.icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 5vw;
+    color: rgb(255, 183, 0);
+    margin-block: 0.8vw;
+}
+
+
+.h2Modal{
+    margin-block: 1vw;
+    font-size: 1.4vw;
+}
+
+
+.pModal{
+    font-size: 1vw;
+    margin-inline: 18%;
+}
+
+.botoesModal{
+    margin-top: 1vw;
+}
+
+.sim{
+    background-color: rgb(22, 217, 194);
+    border: solid rgb(22, 217, 194);
+    transition: 0.5s;
+    font-size: 1vw;
+    font-weight: bold;
+    border-radius: 3vw;
+    width: 4vw;
+    height: 2vw;
+    color: white;
+    margin-inline: 0.4vw;
+    cursor: pointer;
+}
+
+.sim:hover{
+    background-color: rgb(22, 196, 176);
+    border: solid rgb(22, 196, 176);
+    
+}
+
+.nao{
+    background-color: rgb(255, 183, 0);
+    border: solid rgb(255, 183, 0);
+    transition: 0.5s;
+    font-size: 1vw;
+    font-weight: bold;
+    border-radius: 3vw;
+    width: 4vw;
+    height: 2vw;
+    color: white;
+    margin-inline: 0.4vw;
+    cursor: pointer;
+}
+
+.nao:hover{
+    background-color: rgb(229, 165, 1);
+    border: solid rgb(229, 165, 1);
+}
