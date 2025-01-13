@@ -5,10 +5,7 @@ import axios from 'axios'
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaPlusCircle, FaPen, FaTrash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
-import FormIncluir from './FormIncluir';
-import FormVizualizar from './FormVizualizar';
-import FormAtualizar from './FormAtualizar';
-import ModalDelete from './ModalDelete'
+
 
 
 
@@ -35,45 +32,9 @@ function Home() {
   const [nome, setNome] = useState('');
   const [razaoSocial, setRazaoSocial] = useState('');
   const [usuariosFiltrados, setUsuariosFiltrados] = useState<Usuario[]>([])
-  const [exibirFormIncluir, setExibirFormIncluir] = useState(false);
-  const [exibirFormVizualizar, setExibirFormVizualizar] = useState(false);
-  const [exibirFormAtualizar, setExibirFormAtualizar] = useState(false);
-  const [exibirModalDelete, setExibirModalDelete] = useState(false);
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState<string>('');
-  const [nomeSelecionado, setNomeSelecionado] = useState<String>('')
-
-  const handleIncluirClick = () => {
-    setExibirFormIncluir(true); 
-  };
-
-  const handleModalClick = (id: string, nome: string) => {
-    setUsuarioSelecionado(id);
-    setNomeSelecionado(nome);
-    setExibirModalDelete(true); 
-  };
-
-  const handleVizuClick = (id: string) => {
-    console.log("ID Selecionado:", id); 
-    setUsuarioSelecionado(id);
-    setExibirFormVizualizar(true);
-
-  };
-
-  const handleAtuClick = (id: string) =>{
-    console.log("ID Selecionado:", id); 
-    setUsuarioSelecionado(id);
-    setExibirFormAtualizar(true);
-    fetchUsuarios()
-  }
 
 
-  const handleCancelar = () => {
-    setExibirFormIncluir(false);
-    setExibirFormVizualizar(false);
-    setExibirFormAtualizar(false);
-    setExibirModalDelete(false);
-    fetchUsuarios();
-  };
+
   
 
   const fetchUsuarios = async () => {
@@ -137,14 +98,10 @@ function Home() {
             </div>
           </form>
         </fieldset>
-        <button className={cssHome.incluir} onClick={handleIncluirClick}>
+        <button className={cssHome.incluir}>
           <FaPlusCircle /> {' '}
           Incluir
         </button>
-        {exibirFormIncluir && <FormIncluir onCancelar={handleCancelar} onUpdate={fetchUsuarios} />}
-        {exibirFormVizualizar && usuarioSelecionado && < FormVizualizar userId={usuarioSelecionado} onCancelar={handleCancelar}/>}
-        {exibirFormAtualizar && <FormAtualizar userId={usuarioSelecionado} onCancelar={handleCancelar}/>}
-        {exibirModalDelete && < ModalDelete userName={nomeSelecionado} userId={usuarioSelecionado} fetchUsuarios={fetchUsuarios} onCancelar={handleCancelar}/> }
         <div className={cssHome.divTabela}>
           <table>
             <thead>
@@ -164,13 +121,13 @@ function Home() {
                   <td>{usuario.cidade}</td>
                   <td>{usuario.uf}</td>
                   <td>
-                    <button className={cssHome.acao} onClick={() => handleVizuClick(usuario.id)}>
+                    <button className={cssHome.acao} >
                       <IoEyeSharp />
                     </button>
-                    <button  className={cssHome.acao} onClick={() => handleAtuClick(usuario.id)}>
+                    <button  className={cssHome.acao} >
                       <FaPen />
                     </button>
-                    <button  className={cssHome.acao} onClick={() => handleModalClick(usuario.id, usuario.nome)}>
+                    <button  className={cssHome.acao} >
                       <FaTrash />
                     </button>
                   </td>
