@@ -42,7 +42,18 @@ const Form = forwardRef((_, ref) => {
         bairro: ''
     });
 
-    const validarFields = () => {
+
+    const verificarCpfCnpj = async (cpfCnpj:String): Promise<boolean> =>{
+        const response = await axios.get('http://localhost:8000/buscarTodosCpfCnpj');
+        const usuarios = response.data
+        return usuarios.some(
+            (usuario: { cpf_cnpj: string }) => usuario.cpf_cnpj === cpfCnpj
+        );
+    }
+
+
+
+    const validarFields = async (): Promise<boolean> => {
         const newErrors: Partial<FormData> = {};
         if (!formData.cpf_cnpj || formData.cpf_cnpj.trim() === "" || formData.cpf_cnpj === null) {
             newErrors.cpf_cnpj = 'CPF/CNPJ é obrigatório';
@@ -74,19 +85,25 @@ const Form = forwardRef((_, ref) => {
     const submit = async () => {
         if (!validarFields()) {
           console.log('Erros nos campos:', errors);
-          return null; 
+          return null;
         }
-        try {
-          await axios.post('http://localhost:8000/novoUsuario', formData);
-          console.log('Usuário inserido com sucesso');
-          
-          return formData; 
+          try {
+            const cpfCnpjDuplicado = await verificarCpfCnpj(formData.cpf_cnpj);
+            if (cpfCnpjDuplicado) {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    cpf_cnpj: 'CPF/CNPJ já cadastrado.',
+                }));
+                return null;
+            }
+            await axios.post('http://localhost:8000/novoUsuario', formData);
+            console.log('Usuário inserido com sucesso');         
+            return formData; 
         } catch (error) {
-          console.error('Erro ao adicionar usuário:', error);
-          return null; 
+            console.error('Erro ao adicionar usuário:', error);
+            return null; 
         }
-        
-      };
+    };
     
       useImperativeHandle(ref, () => ({
         submit,

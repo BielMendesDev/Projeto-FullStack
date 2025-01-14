@@ -26,6 +26,19 @@ class UsuarioController {
         })
     }
 
+
+    async getUserCpfCnpj(request, response){
+        db.select('cpf_cnpj')
+        .table('usuarios')
+        .then(usuarios=>{
+            console.log(usuarios);
+            response.json(usuarios);
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
+
+
      async listarUmUsuario(request, response){
         const {id} = request.params;
 
@@ -64,6 +77,8 @@ class UsuarioController {
             console.log(error)
         });
     }
+
+    
 
 }
 

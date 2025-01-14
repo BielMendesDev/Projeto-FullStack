@@ -17,7 +17,7 @@ export interface Usuario {
   contato: string; 
   uf: string; 
   cidade: string; 
-  razaoSocial: string; 
+  razao_social: string; 
   cpfCnpj: string; 
   endereco: string; 
   telefone: string; 
@@ -77,9 +77,9 @@ function Home() {
 
     const filtros = usuariosFiltrados.filter((usuario) => {
       return (
-        (codigo === '' || usuario.id.toString() === (codigo)) &&
+        (codigo === '' || usuario.id.toString().includes(codigo)) &&
         (nome === '' || usuario.nome.toLowerCase().includes(nome.toLowerCase())) &&
-        (razaoSocial === '' || usuario.razaoSocial.toLowerCase().includes(razaoSocial.toLowerCase()))
+        (razaoSocial === '' || usuario.razao_social === (razaoSocial))
       );
     });
     setUsuariosFiltrados(filtros);

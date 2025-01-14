@@ -7,6 +7,8 @@ router.post('/novoUsuario', UsuarioController.novoUsuario);
 
 router.get('/listarUsuarios', UsuarioController.listarUsuarios);
 
+router.get('/buscarTodosCpfCnpj', UsuarioController.getUserCpfCnpj)
+
 router.get('/listarUmUsuario/:id', UsuarioController.listarUmUsuario);
 
 router.put('/atualizarUsuario/:id', UsuarioController.atualizarUsuario);
