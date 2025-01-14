@@ -2,33 +2,30 @@ import { FaCircleExclamation } from "react-icons/fa6";
 import '../index.css'
 import cssModal from './ModalDelete.module.css'
 import axios from 'axios';
+import { useNavigate, useParams } from "react-router-dom";
 
 
-//sou pessimo com nome, container e box de novo, ave maria! 
+function ModalDelete(){
 
-interface PropsModal {
-    onCancelar: () => void;
-    fetchUsuarios: () => void;
-    userId: string;
-    userName: String
-}
-
-
-
-
-
-function ModalDelete({onCancelar, fetchUsuarios, userId, userName}: PropsModal){
+    const params = useParams<Record<string, string | undefined>>();
+    const userId = params?.userId;
+    const userName = params?.userName
+    const navegate = useNavigate();
+    const handleCancel = () =>{
+        navegate('/')
+    }
 
     const deletarUsuario = async () => {
         try {
             console.log(userId)
           await axios.delete(`http://localhost:8000/deletarUsuario/${userId}`);
-          onCancelar();
-          fetchUsuarios(); 
+          handleCancel();
         } catch (error) {
           console.error("Erro ao excluir o usuário:", error);
         }
       };
+
+
 
 
     return(
@@ -45,7 +42,7 @@ function ModalDelete({onCancelar, fetchUsuarios, userId, userName}: PropsModal){
                     </div>
                     <div className={cssModal.botoesModal}>
                         <button className={cssModal.sim} onClick={deletarUsuario}>Sim</button>
-                        <button className={cssModal.nao} onClick={onCancelar}>Não</button>
+                        <button className={cssModal.nao} onClick={handleCancel}>Não</button>
                     </div>
                 </div>
             </div>

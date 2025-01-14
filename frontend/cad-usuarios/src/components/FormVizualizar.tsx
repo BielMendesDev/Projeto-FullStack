@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from './FormGet';
 import cssForm from './FormStyle.module.css';
+import { useParams, useNavigate } from 'react-router-dom';
 
-interface FormVizuProps {
-  onCancelar: () => void;
-  userId: string;
-}
 
-function FormVizualizar({ onCancelar, userId }: FormVizuProps) {
+
+function FormVizualizar() {
+  const params = useParams<Record<string, string | undefined>>();
+  const userId = params?.userId;
   const [dados, setDados] = useState<any>(null);
+
+  const navegate = useNavigate();
+
+  const handleCancel = () =>{
+    navegate('/')
+  }
 
   useEffect(() => {
     console.log('Buscando dados para o userId:', userId);
@@ -39,7 +45,7 @@ function FormVizualizar({ onCancelar, userId }: FormVizuProps) {
           {dados && <Form dados={dados} />} 
         </div>
         <div className={cssForm.botoes}>
-          <button className={cssForm.cancelar} onClick={onCancelar}>
+          <button className={cssForm.cancelar} onClick={handleCancel} >
             Cancelar
           </button>
         </div>

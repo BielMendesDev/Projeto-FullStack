@@ -5,6 +5,7 @@ import axios from 'axios'
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaPlusCircle, FaPen, FaTrash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -28,13 +29,29 @@ export interface Usuario {
 
 
 function Home() {
-  const [codigo, setCodigo] = useState('')
+  const [codigo, setCodigo] = useState('');
   const [nome, setNome] = useState('');
   const [razaoSocial, setRazaoSocial] = useState('');
-  const [usuariosFiltrados, setUsuariosFiltrados] = useState<Usuario[]>([])
+  const [usuariosFiltrados, setUsuariosFiltrados] = useState<Usuario[]>([]);
 
 
+  const navegate = useNavigate();
 
+  const handleVizu = (id: String) =>{
+    navegate(`/vizualizar/${id}`);
+  }
+
+  const handleAtu = (id: String) =>{
+    navegate(`/atulizarUsuario/${id}`);
+  }
+
+  const handleInclu = () =>{
+    navegate('/incluir')
+  }
+
+  const handleDel = (id : String, nome:String) =>{
+    navegate(`/deletarUsuario/${id}/${nome}`)
+  }
   
 
   const fetchUsuarios = async () => {
@@ -69,7 +86,7 @@ function Home() {
   };
 
 
-  return (
+  return  (
     <div className={cssHome.box}>
       <h1>Listagem de Pessoa</h1>
       <div className={cssHome.container}>
@@ -98,7 +115,7 @@ function Home() {
             </div>
           </form>
         </fieldset>
-        <button className={cssHome.incluir}>
+        <button className={cssHome.incluir} onClick={handleInclu}>
           <FaPlusCircle /> {' '}
           Incluir
         </button>
@@ -121,13 +138,13 @@ function Home() {
                   <td>{usuario.cidade}</td>
                   <td>{usuario.uf}</td>
                   <td>
-                    <button className={cssHome.acao} >
+                    <button className={cssHome.acao} onClick={() => handleVizu(usuario.id)} >
                       <IoEyeSharp />
                     </button>
-                    <button  className={cssHome.acao} >
+                    <button  className={cssHome.acao} onClick={() => handleAtu(usuario.id)} >
                       <FaPen />
                     </button>
-                    <button  className={cssHome.acao} >
+                    <button  className={cssHome.acao} onClick={() => handleDel(usuario.id, usuario.nome)} >
                       <FaTrash />
                     </button>
                   </td>

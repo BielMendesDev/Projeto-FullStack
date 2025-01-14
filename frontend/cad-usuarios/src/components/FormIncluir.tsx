@@ -1,14 +1,18 @@
 import cssForm from './FormStyle.module.css';
 import Form from './FormPost';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-interface FormIncluirProps {
-    onCancelar: () => void;
-    onUpdate: () => void;
-}
 
-function FormIncluir({ onCancelar, onUpdate }: FormIncluirProps) {
+
+function FormIncluir() {
+
+    const navegate = useNavigate();
+
+    const handleCancel = () =>{
+        navegate('/')
+    }
 
     const formRef = useRef<any>(null);
     
@@ -18,8 +22,8 @@ function FormIncluir({ onCancelar, onUpdate }: FormIncluirProps) {
             if (formData) {
                 try {
                     console.log('Enviando dados para a API:', formData);
-                    onUpdate(); 
-                    onCancelar(); 
+                    handleCancel();
+                     
                 } catch (error) {
                     console.error('Erro ao salvar:', error);
                 }
@@ -39,7 +43,7 @@ function FormIncluir({ onCancelar, onUpdate }: FormIncluirProps) {
                     <Form  ref={formRef} />
                 </div>
                 <div className={cssForm.botoes}>
-                    <button className={cssForm.cancelar} onClick={onCancelar}>Cancelar</button>
+                    <button className={cssForm.cancelar} onClick={handleCancel}>Cancelar</button>
                     <button className={cssForm.salvar} onClick={handleSubmit}>Salvar</button>
                 </div>
              </div>

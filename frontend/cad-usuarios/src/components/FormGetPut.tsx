@@ -58,7 +58,7 @@ interface FormProps {
                         name="cpf_cnpj"
                         type="text"
                         value={formData.cpf_cnpj}
-                        onChange={handleInputChange}
+                        readOnly
                         />
                         {errors.cpf_cnpj && <span className={cssForm.error}>{errors.cpf_cnpj}</span>}
                     </div>

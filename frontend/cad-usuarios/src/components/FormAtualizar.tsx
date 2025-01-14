@@ -3,14 +3,22 @@ import Form from './FormGetPut'
 import cssForm from './FormStyle.module.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useParams, useNavigate } from 'react-router-dom';
 
-interface FormAtuProps {
-    onCancelar: () => void;
-    userId: string ;
-}
 
-function FormAtualizar({ onCancelar, userId }: FormAtuProps) {
+
+function FormAtualizar() {
     const [dados, setDados] = useState<any>(null);
+    const params = useParams<Record<string, string | undefined>>();
+      const userId = params?.userId;
+
+
+      const navegate = useNavigate();
+      
+        const handleCancel = () =>{
+          navegate('/')
+        }
+      
   
     useEffect(() => {
       axios
@@ -24,7 +32,7 @@ function FormAtualizar({ onCancelar, userId }: FormAtuProps) {
         .put(`http://localhost:8000/atualizarUsuario/${userId}`, formData)
         .then(() => {
           alert('Usuário atualizado com sucesso!');
-          onCancelar();
+          handleCancel();
         })
         .catch((error) => console.error('Erro ao atualizar usuário:', error));
     };
@@ -40,7 +48,7 @@ function FormAtualizar({ onCancelar, userId }: FormAtuProps) {
             {dados && <Form dados={dados} onSubmit={handleUpdate} />}
           </div>
           <div className={cssForm.botoes}>
-            <button className={cssForm.cancelar} onClick={onCancelar}>
+            <button className={cssForm.cancelar} onClick={handleCancel}>
               Cancelar
             </button>
             <button form="meuFormulario" type="submit" className={cssForm.salvar}>
