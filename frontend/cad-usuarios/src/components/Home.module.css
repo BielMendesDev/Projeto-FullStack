@@ -65,7 +65,7 @@ form, .codigo, .nome, .razao{
     color: white;
     border-radius: 0.3vw;
     border: 0.1vw solid rgb(0, 169, 248);
-    
+    cursor: pointer;
     transition: 0.5s;
 }
 
@@ -85,7 +85,7 @@ form, .codigo, .nome, .razao{
     color: white;
     border-radius: 1vw;
     border: 0.1vw solid rgb(0, 169, 248);
-   
+   cursor: pointer;
     transition: 0.5s;
 }
 
@@ -121,8 +121,8 @@ input{
     width: 100%;
     height: 18vw;
     overflow-y: scroll;
-    
 }
+
 
 table{
     width: 100%;
@@ -163,3 +163,23 @@ th{
     background-color: transparent;
     width:  1.3vw;
 }
+
+
+
+@media (max-width: 600px) {
+    .divTabela{
+        height: 16vw;
+    }
+}
+
+@media (max-width:400px){
+    .divTabela{
+        height: 11.6vw ;
+    
+    }
+
+    .divTabela::-webkit-scrollbar{
+        display: none;
+    } 
+}
+
