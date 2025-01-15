@@ -85,7 +85,7 @@ form, .codigo, .nome, .razao{
     color: white;
     border-radius: 1vw;
     border: 0.1vw solid rgb(0, 169, 248);
-   cursor: pointer;
+    cursor: pointer;
     transition: 0.5s;
 }
 
@@ -164,7 +164,9 @@ th{
     width:  1.3vw;
 }
 
-
+.avisoFiltro{
+    font-size: 1vw;
+}
 
 @media (max-width: 600px) {
     .divTabela{

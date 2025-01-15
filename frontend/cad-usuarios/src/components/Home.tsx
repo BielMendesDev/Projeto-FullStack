@@ -69,7 +69,7 @@ function Home() {
 
   const filtrar = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    
     if (codigo === '' && nome === '' && razaoSocial === '') {
       fetchUsuarios();
       return;
@@ -112,6 +112,7 @@ function Home() {
                 <FaMagnifyingGlass /> {' '}
                 Filtrar
               </button>
+              
             </div>
           </form>
         </fieldset>
@@ -119,6 +120,7 @@ function Home() {
           <FaPlusCircle /> {' '}
           Incluir
         </button>
+        <p className={cssHome.avisoFiltro}>para retornar todos os usuarios, aperte "Filtrar" com os campos vazios</p>
         <div className={cssHome.divTabela}>
           <table>
             <thead>
