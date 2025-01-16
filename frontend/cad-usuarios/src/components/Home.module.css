@@ -168,13 +168,13 @@ th{
     font-size: 1vw;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
     .divTabela{
         height: 16vw;
     }
 }
 
-@media (max-width:400px){
+@media (max-width:420px){
     .divTabela{
         height: 11.6vw ;
     
