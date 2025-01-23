@@ -79,7 +79,7 @@ function Home() {
       return (
         (codigo === '' || usuario.id.toString().includes(codigo)) &&
         (nome === '' || usuario.nome.toLowerCase().includes(nome.toLowerCase())) &&
-        (razaoSocial === '' || usuario.razao_social === (razaoSocial))
+        (razaoSocial === '' || (usuario.razao_social && usuario.razao_social.toLowerCase().includes(razaoSocial.toLowerCase())))
       );
     });
     setUsuariosFiltrados(filtros);
